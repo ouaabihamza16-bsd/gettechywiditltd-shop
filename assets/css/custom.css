@@ -1,0 +1,212 @@
+/* Get Techy Wid It - small additions on top of Tailwind */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: #A3E635;
+  color: #0F172A;
+  font-weight: 600;
+  transition: top 0.15s ease;
+}
+.skip-link:focus {
+  top: 1rem;
+  outline: 2px solid #0F172A;
+  outline-offset: 2px;
+}
+
+#main:focus {
+  outline: none;
+}
+
+.hero-glow {
+  background:
+    radial-gradient(40rem 24rem at 85% 10%, rgba(37, 99, 235, 0.35), transparent 70%),
+    radial-gradient(28rem 20rem at 5% 95%, rgba(163, 230, 53, 0.12), transparent 70%);
+}
+
+.eyebrow {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #2563EB;
+}
+
+.nav-link {
+  display: inline-flex;
+  padding: 0.5rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #334155;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+.nav-link:hover {
+  color: #2563EB;
+  background: #EFF6FF;
+}
+
+.mobile-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  color: #0F172A;
+}
+.mobile-link:hover {
+  background: #EFF6FF;
+  color: #2563EB;
+}
+
+.footer-link {
+  color: #CBD5E1;
+  text-decoration: none;
+  border-radius: 0.25rem;
+}
+.footer-link:hover {
+  color: #A3E635;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.nav-link:focus-visible,
+.mobile-link:focus-visible,
+.dialog-close:focus-visible {
+  outline: 2px solid #2563EB;
+  outline-offset: 2px;
+}
+.footer-link:focus-visible {
+  outline: 2px solid #A3E635;
+  outline-offset: 3px;
+}
+
+.card {
+  border: 1px solid #E2E8F0;
+  border-radius: 1.5rem;
+  background: #F8FAFC;
+  padding: 2rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card:hover {
+  border-color: #BFDBFE;
+  box-shadow: 0 12px 30px -12px rgba(15, 23, 42, 0.15);
+  transform: translateY(-2px);
+}
+
+.icon-tile {
+  display: inline-flex;
+  height: 3.5rem;
+  width: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  background: #2563EB;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 #A3E635;
+}
+
+.fact {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 1.25rem;
+}
+.fact-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #A3E635;
+}
+.fact-value {
+  margin-top: 0.4rem;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Legal dialogs */
+.legal-dialog {
+  width: min(44rem, calc(100% - 2rem));
+  max-height: 85vh;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 1.25rem;
+  background: #fff;
+  color: #334155;
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.45);
+  overflow: hidden;
+}
+.legal-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+.legal-dialog::backdrop {
+  background: rgba(15, 23, 42, 0.7);
+}
+.legal-body {
+  overflow-y: auto;
+  padding: 1.25rem 1.5rem 1.75rem;
+  line-height: 1.65;
+}
+.legal-body h3 {
+  margin-top: 1.25rem;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #0F172A;
+}
+.legal-body p,
+.legal-body ul {
+  margin-top: 0.5rem;
+}
+.legal-body ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+.dialog-close {
+  display: inline-flex;
+  height: 2.5rem;
+  width: 2.5rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  color: #475569;
+}
+.dialog-close:hover {
+  background: #F1F5F9;
+  color: #0F172A;
+}
+
+body.dialog-open {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .card:hover {
+    transform: none;
+  }
+}
